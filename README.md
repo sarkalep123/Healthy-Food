@@ -1,88 +1,98 @@
 # Healthy-Food
+
 This is my repo
 
 # Container.jsx
+
 import styles from "./Container.module.css";
 
 const Container = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+return <div className={styles.container}>{children}</div>;
 };
 export default Container;
 
 # Container.Module.css
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+<StrictMode>
+<App />
+</StrictMode>,
 )
+
 # ErrorMessage.jsx
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+<StrictMode>
+<App />
+</StrictMode>,
 )
+
 # FoodInput.jsx
+
 import styles from "./FoodInput.module.css";
 
 const FoodInput = ({ handleKeyDown }) => {
-  return (
-    <input
+return (
+<input
       type="text"
       placeholder="Enter Food Item here"
       className={styles.foodInput}
       onKeyDown={handleKeyDown}
     />
-  );
+);
 };
 export default FoodInput;
+
 # FoodInput.Module.css
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+<StrictMode>
+<App />
+</StrictMode>,
 )
+
 # FoodItem.jsx
 
 import { useState } from "react";
 import Item from "./Item";
 
 const FoodItems = ({ items }) => {
-  let [activeItems, setActiveItems] = useState([]);
+let [activeItems, setActiveItems] = useState([]);
 
-  let onBuyButton = (item, event) => {
-    let newItems = [...activeItems, item];
-    setActiveItems(newItems);
-  };
+let onBuyButton = (item, event) => {
+let newItems = [...activeItems, item];
+setActiveItems(newItems);
+};
 
-  return (
-    <ul className="list-group">
-      {items.map((item) => (
-        <Item
-          key={item}
-          foodItem={item}
-          bought={activeItems.includes(item)}
-          handleBuyButton={(event) => onBuyButton(item, event)}
-        ></Item>
-      ))}
-    </ul>
-  );
+return (
+<ul className="list-group">
+{items.map((item) => (
+<Item
+key={item}
+foodItem={item}
+bought={activeItems.includes(item)}
+handleBuyButton={(event) => onBuyButton(item, event)} ></Item>
+))}
+</ul>
+);
 };
 export default FoodItems;
+
 # Item.jsx
 
 import { StrictMode } from 'react'
@@ -91,24 +101,26 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+<StrictMode>
+<App />
+</StrictMode>,
 )
+
 # Item.Module.css
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+<StrictMode>
 
 # App.css
 
-  .food-heading {
-    color: brown;
-    text-align: center;
+.food-heading {
+color: brown;
+text-align: center;
 }
 
 # App.jsx
@@ -122,27 +134,27 @@ import FoodInput from "./components/FoodInput";
 import { useState } from "react";
 
 function App() {
-  let [foodItems, setFoodItems] = useState([]);
+let [foodItems, setFoodItems] = useState([]);
 
-  const onKeyDown = (event) => {
-    if (event.key === "Enter") {
-      let newFoodItem = event.target.value;
-      event.target.value = " ";
-      let newItems = [...foodItems, newFoodItem];
-      setFoodItems(newItems);
-    }
-  };
+const onKeyDown = (event) => {
+if (event.key === "Enter") {
+let newFoodItem = event.target.value;
+event.target.value = " ";
+let newItems = [...foodItems, newFoodItem];
+setFoodItems(newItems);
+}
+};
 
-  return (
-    <>
-      <Container>
-        <h1 className="food-heading">Healthy Food</h1>
-        <FoodInput handleKeyDown={onKeyDown}></FoodInput>
-        <ErrorMessage items={foodItems}></ErrorMessage>
-        <FoodItems items={foodItems}></FoodItems>
-      </Container>
-    </>
-  );
+return (
+<>
+<Container>
+<h1 className="food-heading">Healthy Food</h1>
+<FoodInput handleKeyDown={onKeyDown}></FoodInput>
+<ErrorMessage items={foodItems}></ErrorMessage>
+<FoodItems items={foodItems}></FoodItems>
+</Container>
+</>
+);
 }
 
 export default App;
@@ -155,10 +167,7 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+<StrictMode>
+<App />
+</StrictMode>,
 )
-
-
-
